@@ -1,0 +1,23 @@
+# Node.js dosyaları
+node_modules/
+.lock-files/
+
+# IDE dosyaları
+.vscode/
+.idea/
+
+# Test dosyaları
+test/
+**/__tests__/
+
+# Çevresel dosyalar
+.env
+
+# Geçici dosyalar
+tmp/
+
+# Hata günlükleri
+logs/
+
+# Paket yöneticisi kilit dosyaları
+package-lock.json

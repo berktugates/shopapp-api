@@ -15,7 +15,7 @@ app.use(cors({
 }));
 
 app.get("/", (req, res) => {
-  res.status(200).send("hos geldin kanks");
+  res.status(200).send("created by @berktugates");
 });
 
 const username = "berktugsosyal"

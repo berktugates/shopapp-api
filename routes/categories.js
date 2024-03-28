@@ -19,7 +19,7 @@ router.put("/api/categories/:id", async (req,res) =>{
     try{
         const category = await Category.findById(id);
         if(!category){
-            return res.status(400).send("Böyle bir kategori bulunmamaktadır.")
+            return res.status(400).send("There is no such category.")
         }
         const {error} = validateCategory(req.body);
         if(error){
@@ -39,7 +39,7 @@ router.get("/api/categories/:id", async (req,res)=>{
     try{
         const category = await Category.findById(id);
         if(!category){
-            return res.status(400).send("Böyle bir kategori bulunmamaktadır")
+            return res.status(400).send("There is no such category.")
         }
         return res.status(200).send(category)
     }

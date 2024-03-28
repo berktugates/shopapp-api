@@ -19,7 +19,7 @@ router.put("/api/products/:id", async (req, res) => {
   try{
     const product = await Product.findById(id);
     if(!product){
-      return res.status(400).send("Böyle bir product yok")
+      return res.status(400).send("There is no such product")
     }
     const {error} = validateProduct(req.body);
     if(error){
@@ -29,6 +29,8 @@ router.put("/api/products/:id", async (req, res) => {
     product.description = req.body.description;
     product.image_url = req.body.image_url;
     product.is_active = req.body.is_active;
+
+    await product.save();
     
     return res.status(200).send(product)
   }
@@ -42,7 +44,7 @@ router.get("/api/products/:id", async (req, res) => {
   try{
     const product = await Product.findById(id);
     if(!product){
-      return res.status(400).send("Böyle bir product yok.")
+      return res.status(400).send("There is no such product")
     }
     return res.status(200).send(product)
   }
@@ -78,7 +80,7 @@ router.get("/api/products",  async (req, res) => {
   try{
     const products = await Product.find();
     if(!products){
-      res.status(400).send("Hiç ürün bulunmamaktadır")
+      res.status(400).send("There are no products")
     }
     return res.status(200).send(products);
   }
